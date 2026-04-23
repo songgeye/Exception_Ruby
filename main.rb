@@ -3,19 +3,14 @@
 class Main
   puts 1
   begin
-    num = 0
-    answer = 100 / num
-    puts answer2
+    puts 2
+    raise Exception.new("意図的な例外")
+    puts 3
   rescue Exception => e
     puts "予期せぬエラーが発生しました"
-    puts e
-  rescue ZeroDivisionError => e
-    puts "0では割り算できません"
     p e
-  rescue NameError => e
-    puts "未定義の変数を呼び出しています"
-    p e
+    puts e.message
   ensure
-    puts 2
+    puts 4
   end
 end
