@@ -11,8 +11,9 @@ class Main
     rescue ZeroDivisionError => e
       puts 5
       raise e
+    ensure
+      puts 6
     end
-    puts 6
   end
 end
 
