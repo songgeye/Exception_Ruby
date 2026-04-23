@@ -1,16 +1,28 @@
 # frozen_string_literal: true
 
 class Main
-  puts 1
-  begin
+  def test_exception(num)
     puts 2
-    raise Exception.new("意図的な例外")
-    puts 3
-  rescue Exception => e
-    puts "予期せぬエラーが発生しました"
-    p e
-    puts e.message
-  ensure
-    puts 4
+    begin
+      puts 3
+      answer = 100 / num
+      return answer
+      puts 4
+    rescue ZeroDivisionError => e
+      puts 5
+      raise e
+    end
+    puts 6
   end
+end
+
+puts 1
+
+begin
+  main = Main.new
+  main.test_exception(0)
+  puts 7
+rescue ZeroDivisionError => e
+  puts 8
+  p e
 end
